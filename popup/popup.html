@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>FocusBuddy Pro</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1>FocusBuddy Pro</h1>
+      <div>
+        <button id="themeToggle">🌙</button>
+        <button id="settingsBtn">⚙️</button>
+      </div>
+    </div>
+    
+    <!-- Motivational Quote -->
+    <div class="section" id="quoteSection">
+      <div id="quote"></div>
+    </div>
+    
+    <!-- Timer Section -->
+    <div class="section">
+      <div class="progress-circle" id="progressCircle"></div>
+      <div id="timer">25:00</div>
+      <div id="status">Ready to Focus</div>
+      <div class="button-group">
+        <button id="startBtn">Start Focus</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </div>
+    
+    <!-- Stats Section -->
+    <div class="section stats-grid">
+      <div class="stat-box">
+        <h3>Your Streak</h3>
+        <div id="streak">🔥 0 day streak</div>
+      </div>
+      <div class="stat-box">
+        <h3>Your Level</h3>
+        <div id="badge">Newbie</div>
+      </div>
+      <div class="stat-box">
+        <h3>Sessions</h3>
+        <div id="sessionCount">0</div>
+      </div>
+    </div>
+    
+    <!-- Sound Section -->
+    <div class="section">
+      <h3>Focus Sounds</h3>
+      <select id="soundSelect">
+        <option value="rain">Rain</option>
+        <option value="white">White Noise</option>
+        <option value="calm">Calm Music</option>
+        <option value="none">None</option>
+      </select>
+      <div class="button-group">
+        <button id="playSound">Play</button>
+        <button id="stopSound">Stop</button>
+      </div>
+    </div>
+    
+    <!-- Task Section -->
+    <div class="section">
+      <h3>Tasks</h3>
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="Add a task...">
+        <button id="addTask">Add</button>
+      </div>
+      <ul id="taskList"></ul>
+    </div>
+    
+    <!-- Notes Section -->
+    <div class="section">
+      <h3>Session Notes</h3>
+      <textarea id="noteInput" placeholder="Record your thoughts..."></textarea>
+      <button id="saveNote">Save Note</button>
+      <ul id="notesList"></ul>
+    </div>
+    
+    <!-- Productivity Chart -->
+    <div class="section">
+      <h3>Weekly Progress</h3>
+      <canvas id="productivityChart"></canvas>
+    </div>
+  </div>
+  
+  <!-- Settings Modal -->
+  <div id="settingsModal" class="modal">
+    <div class="modal-content">
+      <span id="closeSettings">&times;</span>
+      <h2>Settings</h2>
+      
+      <div class="form-group">
+        <label for="focusDuration">Focus Duration (minutes):</label>
+        <input type="number" id="focusDuration" value="25" min="1">
+      </div>
+      
+      <div class="form-group">
+        <label for="shortBreak">Short Break (minutes):</label>
+        <input type="number" id="shortBreak" value="5" min="1">
+      </div>
+      
+      <div class="form-group">
+        <label for="longBreak">Long Break (minutes):</label>
+        <input type="number" id="longBreak" value="15" min="1">
+      </div>
+      
+      <div class="form-group">
+        <label for="sessionsBeforeLongBreak">Sessions before long break:</label>
+        <input type="number" id="sessionsBeforeLongBreak" value="4" min="1">
+      </div>
+      
+      <div class="form-group">
+        <label for="blockedSites">Blocked Sites (comma separated):</label>
+        <textarea id="blockedSites" placeholder="facebook.com, instagram.com"></textarea>
+      </div>
+      
+      <button id="saveSettings">Save Settings</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
